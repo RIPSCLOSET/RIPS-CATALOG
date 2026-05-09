@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,205 +7,142 @@
 <title>RIPS CLOSET</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green: #3ddd00;
-    --green-bright: #7fff00;
-    --green-dark: #1a6600;
-    --black: #060606;
-    --dark: #0e0e0e;
-    --card: #111;
-    --border: #1e1e1e;
-    --white: #f5f5f0;
-    --gray: #666;
-    --light: #999;
-  }
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { width: 100%; overflow-x: hidden; }
+body { width: 100%; max-width: 100vw; overflow-x: hidden; background: #060606; color: #f5f5f0; font-family: 'Barlow', sans-serif; -webkit-font-smoothing: antialiased; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  html { width: 100%; overflow-x: hidden; }
-  body { width: 100%; max-width: 100vw; overflow-x: hidden; background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; -webkit-font-smoothing: antialiased; }
+/* ANNOUNCEMENT BAR */
+.announce-bar { background: #3ddd00; color: #060606; font-family: ‘Barlow Condensed’, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 0; overflow: hidden; white-space: nowrap; width: 100%; }
+.announce-track { display: inline-block; animation: marquee 22s linear infinite; }
+.announce-track span { margin: 0 32px; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-  /* ── ANNOUNCEMENT BAR ── */
-  .announce-bar {
-    background: var(--green);
-    color: var(--black);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 8px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-  }
-  .announce-track {
-    display: inline-block;
-    animation: marquee 22s linear infinite;
-  }
-  .announce-track span { margin: 0 32px; }
-  @keyframes marquee {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+/* GATE */
+#gate { position: fixed; inset: 0; background: #060606; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
+.gate-card { width: 100%; max-width: 340px; background: #0e0e0e; border: 1px solid #1e1e1e; border-top: 3px solid #3ddd00; border-radius: 16px; padding: 36px 24px; text-align: center; }
+.gate-logo { font-family: ‘Bebas Neue’, sans-serif; font-size: 40px; letter-spacing: 4px; margin-bottom: 4px; }
+.gate-sub { font-family: ‘Barlow Condensed’, sans-serif; font-size: 11px; letter-spacing: 4px; color: #666; text-transform: uppercase; margin-bottom: 32px; }
+.gate-input { width: 100%; padding: 16px; background: #111; border: 1px solid #222; border-radius: 10px; color: #f5f5f0; font-family: ‘Barlow’, sans-serif; font-size: 16px; outline: none; margin-bottom: 10px; transition: border-color 0.2s; -webkit-appearance: none; display: block; }
+.gate-input:focus { border-color: #3ddd00; }
+.gate-error { color: #e63329; font-size: 12px; letter-spacing: 1px; min-height: 20px; margin-bottom: 10px; }
+.gate-btn { width: 100%; padding: 16px; background: #3ddd00; border: none; border-radius: 10px; font-family: ‘Barlow Condensed’, sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #060606; cursor: pointer; }
+.gate-btn:active { background: #7fff00; }
+.gate-hint { margin-top: 20px; font-size: 12px; color: #333; letter-spacing: 1px; }
 
-  /* ── GATE ── */
-  #gate {
-    position: fixed; inset: 0; background: var(--black); z-index: 9999;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;
-  }
-  .gate-card {
-    width: 100%; max-width: 340px; background: var(--dark);
-    border: 1px solid var(--border); border-top: 3px solid var(--green);
-    border-radius: 16px; padding: 36px 24px; text-align: center;
-  }
-  .gate-logo { font-family: 'Bebas Neue', sans-serif; font-size: 40px; letter-spacing: 4px; margin-bottom: 4px; }
-  .gate-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 4px; color: var(--gray); text-transform: uppercase; margin-bottom: 32px; }
-  .gate-input {
-    width: 100%; padding: 16px; background: #111; border: 1px solid #222; border-radius: 10px;
-    color: var(--white); font-family: 'Barlow', sans-serif; font-size: 16px; outline: none;
-    margin-bottom: 10px; transition: border-color 0.2s; -webkit-appearance: none; display: block;
-  }
-  .gate-input:focus { border-color: var(--green); }
-  .gate-error { color: #e63329; font-size: 12px; letter-spacing: 1px; min-height: 20px; margin-bottom: 10px; }
-  .gate-btn {
-    width: 100%; padding: 16px; background: var(--green); border: none; border-radius: 10px;
-    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700;
-    letter-spacing: 3px; text-transform: uppercase; color: var(--black); cursor: pointer;
-  }
-  .gate-btn:active { background: var(--green-bright); }
-  .gate-hint { margin-top: 20px; font-size: 12px; color: #333; letter-spacing: 1px; }
+/* TOP BAR */
+.top-bar { height: 3px; background: linear-gradient(90deg, transparent, #3ddd00, #7fff00, #3ddd00, transparent); width: 100%; }
 
-  /* ── TOP BAR ── */
-  .top-bar { height: 3px; background: linear-gradient(90deg, transparent, var(--green), var(--green-bright), var(--green), transparent); width: 100%; }
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; background: rgba(6,6,6,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid #1e1e1e; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-logo { font-family: ‘Bebas Neue’, sans-serif; font-size: 22px; letter-spacing: 3px; }
+.nav-snap { font-family: ‘Barlow Condensed’, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; background: #3ddd00; color: #060606; padding: 8px 16px; border-radius: 6px; text-decoration: none; text-transform: uppercase; }
 
-  /* ── NAV ── */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(6,6,6,0.97); backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 20px;
-    display: flex; align-items: center; justify-content: space-between; width: 100%;
-  }
-  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 3px; }
-  .nav-snap {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
-    letter-spacing: 2px; background: var(--green); color: var(--black);
-    padding: 8px 16px; border-radius: 6px; text-decoration: none; text-transform: uppercase;
-  }
+/* HERO */
+.hero { padding: 32px 20px 28px; border-bottom: 1px solid #1e1e1e; background: radial-gradient(ellipse 80% 40% at 20% 80%, rgba(61,221,0,0.06) 0%, transparent 70%); width: 100%; }
+.hero-eyebrow { font-family: ‘Barlow Condensed’, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 4px; color: #3ddd00; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.hero-eyebrow::before { content: ‘’; width: 20px; height: 1px; background: #3ddd00; display: inline-block; }
+.hero-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 76px; line-height: 0.88; letter-spacing: 2px; margin-bottom: 18px; text-align: left; }
+.hero-sub { font-size: 13px; color: #999; line-height: 1.75; margin-bottom: 24px; text-align: left; }
+.hero-sub strong { color: #f5f5f0; }
+.hero-stats { display: flex; border: 1px solid #1e1e1e; border-radius: 10px; overflow: hidden; width: 100%; }
+.stat { flex: 1; padding: 14px 8px; text-align: center; border-right: 1px solid #1e1e1e; }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: ‘Bebas Neue’, sans-serif; font-size: 26px; color: #3ddd00; display: block; line-height: 1; }
+.stat-label { font-family: ‘Barlow Condensed’, sans-serif; font-size: 9px; letter-spacing: 2px; color: #666; text-transform: uppercase; display: block; margin-top: 2px; }
 
-  /* ── HERO ── */
-  .hero {
-    padding: 32px 20px 28px; border-bottom: 1px solid var(--border);
-    background: radial-gradient(ellipse 80% 40% at 20% 80%, rgba(61,221,0,0.06) 0%, transparent 70%); width: 100%;
-  }
-  .hero-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 4px; color: var(--green); text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-  .hero-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--green); display: inline-block; }
-  .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: 76px; line-height: 0.88; letter-spacing: 2px; margin-bottom: 18px; text-align: left; }
-  .hero-sub { font-size: 13px; color: var(--light); line-height: 1.75; margin-bottom: 24px; text-align: left; }
-  .hero-sub strong { color: var(--white); }
-  .hero-stats { display: flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; width: 100%; }
-  .stat { flex: 1; padding: 14px 8px; text-align: center; border-right: 1px solid var(--border); }
-  .stat:last-child { border-right: none; }
-  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--green); display: block; line-height: 1; }
-  .stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 9px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; display: block; margin-top: 2px; }
+/* FILTERS */
+.filters { padding: 14px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #1e1e1e; -webkit-overflow-scrolling: touch; width: 100%; }
+.filters::-webkit-scrollbar { display: none; }
+.filter-btn { font-family: ‘Barlow Condensed’, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 18px; border-radius: 20px; border: 1px solid #1e1e1e; background: transparent; color: #666; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: all 0.2s; }
+.filter-btn.active { border-color: #3ddd00; color: #060606; background: #3ddd00; }
 
-  /* ── FILTERS ── */
-  .filters { padding: 14px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--border); -webkit-overflow-scrolling: touch; width: 100%; }
-  .filters::-webkit-scrollbar { display: none; }
-  .filter-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 18px; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--gray); cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: all 0.2s; }
-  .filter-btn.active { border-color: var(--green); color: var(--black); background: var(--green); }
+/* CATALOG */
+.catalog { padding: 16px 20px; width: 100%; }
+.catalog-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.catalog-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 20px; letter-spacing: 2px; }
+.catalog-count { font-family: ‘Barlow Condensed’, sans-serif; font-size: 11px; letter-spacing: 2px; color: #666; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
 
-  /* ── CATALOG ── */
-  .catalog { padding: 16px 20px; width: 100%; }
-  .catalog-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-  .catalog-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; }
-  .catalog-count { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 2px; color: var(--gray); }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+/* CARD */
+.card { background: #111; border-radius: 12px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; position: relative; transition: border-color 0.15s, transform 0.15s; width: 100%; }
+.card:active { border-color: #3ddd00; transform: scale(0.97); }
+.card-img { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; overflow: hidden; background: #111; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; display: block; }
+.card-badge { position: absolute; top: 8px; left: 8px; font-family: ‘Barlow Condensed’, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; z-index: 2; }
+.badge-new { background: #3ddd00; color: #060606; }
+.badge-hot { background: #e63329; color: #fff; }
+.badge-limited { background: #ff8c00; color: #060606; }
+.badge-sold { background: rgba(0,0,0,0.85); color: #666; border: 1px solid #333; }
+.sold-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.65); display: flex; align-items: center; justify-content: center; z-index: 3; }
+.sold-text { font-family: ‘Bebas Neue’, sans-serif; font-size: 26px; letter-spacing: 4px; color: #fff; border: 2px solid #fff; padding: 3px 10px; border-radius: 4px; }
+.card-body { padding: 10px 10px 12px; }
+.card-brand { font-family: ‘Barlow Condensed’, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; color: #3ddd00; text-transform: uppercase; margin-bottom: 2px; }
+.card-name { font-family: ‘Bebas Neue’, sans-serif; font-size: 14px; letter-spacing: 0.5px; line-height: 1.15; margin-bottom: 8px; color: #f5f5f0; }
+.card-sizes { display: flex; gap: 4px; flex-wrap: wrap; }
+.size-tag { font-family: ‘Barlow Condensed’, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; padding: 2px 6px; border: 1px solid rgba(61,221,0,0.3); border-radius: 3px; color: #3ddd00; background: rgba(61,221,0,0.05); }
+.size-tag.out { border-color: #1e1e1e; color: #333; background: transparent; text-decoration: line-through; }
 
-  /* ── CARD ── */
-  .card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; position: relative; transition: border-color 0.15s, transform 0.15s; width: 100%; }
-  .card:active { border-color: var(--green); transform: scale(0.97); }
-  .card-img { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; overflow: hidden; background: #111; }
-  .card-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; display: block; }
-  .card-badge { position: absolute; top: 8px; left: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; z-index: 2; }
-  .badge-new { background: var(--green); color: var(--black); }
-  .badge-hot { background: #e63329; color: #fff; }
-  .badge-limited { background: #ff8c00; color: var(--black); }
-  .badge-sold { background: rgba(0,0,0,0.85); color: #666; border: 1px solid #333; }
-  .sold-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.65); display: flex; align-items: center; justify-content: center; z-index: 3; }
-  .sold-text { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 4px; color: #fff; border: 2px solid #fff; padding: 3px 10px; border-radius: 4px; }
-  .card-body { padding: 10px 10px 12px; }
-  .card-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; color: var(--green); text-transform: uppercase; margin-bottom: 2px; }
-  .card-name { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.5px; line-height: 1.15; margin-bottom: 8px; color: var(--white); }
-  .card-sizes { display: flex; gap: 4px; flex-wrap: wrap; }
-  .size-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; padding: 2px 6px; border: 1px solid rgba(61,221,0,0.3); border-radius: 3px; color: var(--green); background: rgba(61,221,0,0.05); }
-  .size-tag.out { border-color: var(--border); color: #333; background: transparent; text-decoration: line-through; }
+/* MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 500; opacity: 0; pointer-events: none; transition: opacity 0.25s; display: flex; align-items: flex-end; }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal { width: 100%; max-height: 92vh; background: #0e0e0e; border-radius: 20px 20px 0 0; border-top: 1px solid #1e1e1e; overflow-y: auto; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94); -webkit-overflow-scrolling: touch; }
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-handle { width: 36px; height: 4px; background: #333; border-radius: 2px; margin: 12px auto 0; }
+.modal-close-row { display: flex; justify-content: flex-end; padding: 8px 16px 0; }
+.modal-close { background: #1a1a1a; border: none; color: #f5f5f0; width: 32px; height: 32px; border-radius: 50%; font-size: 16px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.modal-main-img { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 80px; position: relative; overflow: hidden; background: #111; }
+.modal-main-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; display: block; }
+.modal-thumbs { display: flex; gap: 6px; padding: 10px 16px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #1e1e1e; }
+.modal-thumbs::-webkit-scrollbar { display: none; }
+.thumb { width: 56px; height: 56px; border-radius: 8px; background: #111; border: 1.5px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; cursor: pointer; overflow: hidden; transition: border-color 0.2s; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb.active { border-color: #3ddd00; }
+.modal-body { padding: 20px 20px 0; }
+.modal-brand { font-family: ‘Barlow Condensed’, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #3ddd00; text-transform: uppercase; margin-bottom: 4px; }
+.modal-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 32px; letter-spacing: 1px; line-height: 1; margin-bottom: 12px; }
+.modal-desc { font-size: 13px; color: #999; line-height: 1.7; margin-bottom: 20px; }
+.sizes-label { font-family: ‘Barlow Condensed’, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; color: #666; text-transform: uppercase; margin-bottom: 8px; }
+.modal-sizes { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.modal-size { font-family: ‘Barlow Condensed’, sans-serif; font-size: 14px; font-weight: 700; padding: 10px 20px; border: 1.5px solid rgba(61,221,0,0.35); border-radius: 8px; color: #3ddd00; background: rgba(61,221,0,0.04); letter-spacing: 1px; }
+.modal-size.out { border-color: #1e1e1e; color: #333; text-decoration: line-through; background: transparent; }
+.modal-cta { padding: 0 20px 20px; display: flex; flex-direction: column; gap: 10px; }
+.cta-btn { width: 100%; padding: 16px; border-radius: 10px; border: none; font-family: ‘Barlow Condensed’, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; text-align: center; display: block; cursor: pointer; transition: all 0.15s; }
+.cta-primary { background: #3ddd00; color: #060606; }
+.cta-primary:active { background: #7fff00; }
+.cta-secondary { background: transparent; color: #3ddd00; border: 1.5px solid #3ddd00; }
+.waitlist-btn { width: 100%; padding: 16px; border-radius: 10px; border: 1.5px solid #e63329; font-family: ‘Barlow Condensed’, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; text-align: center; display: block; cursor: pointer; color: #e63329; background: rgba(220,40,40,0.05); transition: all 0.15s; }
+.also-section { padding: 0 20px 28px; border-top: 1px solid #1e1e1e; margin-top: 4px; }
+.also-label { font-family: ‘Barlow Condensed’, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; color: #666; text-transform: uppercase; padding: 16px 0 12px; }
+.also-scroll { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+.also-scroll::-webkit-scrollbar { display: none; }
+.also-card { flex-shrink: 0; width: 96px; cursor: pointer; }
+.also-img { width: 96px; height: 96px; border-radius: 8px; background: #111; border: 1px solid #1e1e1e; display: flex; align-items: center; justify-content: center; font-size: 28px; overflow: hidden; margin-bottom: 6px; transition: border-color 0.2s; }
+.also-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.also-card:active .also-img { border-color: #3ddd00; }
+.also-name { font-family: ‘Barlow Condensed’, sans-serif; font-size: 10px; font-weight: 600; color: #999; text-align: center; line-height: 1.2; }
 
-  /* ── MODAL ── */
-  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 500; opacity: 0; pointer-events: none; transition: opacity 0.25s; display: flex; align-items: flex-end; }
-  .modal-overlay.open { opacity: 1; pointer-events: all; }
-  .modal { width: 100%; max-height: 92vh; background: var(--dark); border-radius: 20px 20px 0 0; border-top: 1px solid var(--border); overflow-y: auto; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94); -webkit-overflow-scrolling: touch; }
-  .modal-overlay.open .modal { transform: translateY(0); }
-  .modal-handle { width: 36px; height: 4px; background: #333; border-radius: 2px; margin: 12px auto 0; }
-  .modal-close-row { display: flex; justify-content: flex-end; padding: 8px 16px 0; }
-  .modal-close { background: #1a1a1a; border: none; color: var(--white); width: 32px; height: 32px; border-radius: 50%; font-size: 16px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-  .modal-main-img { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 80px; position: relative; overflow: hidden; background: #111; }
-  .modal-main-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; display: block; }
-  .modal-thumbs { display: flex; gap: 6px; padding: 10px 16px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--border); }
-  .modal-thumbs::-webkit-scrollbar { display: none; }
-  .thumb { width: 56px; height: 56px; border-radius: 8px; background: var(--card); border: 1.5px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; cursor: pointer; overflow: hidden; transition: border-color 0.2s; }
-  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .thumb.active { border-color: var(--green); }
-  .modal-body { padding: 20px 20px 0; }
-  .modal-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--green); text-transform: uppercase; margin-bottom: 4px; }
-  .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1px; line-height: 1; margin-bottom: 12px; }
-  .modal-desc { font-size: 13px; color: var(--light); line-height: 1.7; margin-bottom: 20px; }
-  .sizes-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--gray); text-transform: uppercase; margin-bottom: 8px; }
-  .modal-sizes { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
-  .modal-size { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; padding: 10px 20px; border: 1.5px solid rgba(61,221,0,0.35); border-radius: 8px; color: var(--green); background: rgba(61,221,0,0.04); letter-spacing: 1px; }
-  .modal-size.out { border-color: var(--border); color: #333; text-decoration: line-through; background: transparent; }
-  .modal-cta { padding: 0 20px 20px; display: flex; flex-direction: column; gap: 10px; }
-  .cta-btn { width: 100%; padding: 16px; border-radius: 10px; border: none; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; text-align: center; display: block; cursor: pointer; transition: all 0.15s; }
-  .cta-primary { background: var(--green); color: var(--black); }
-  .cta-primary:active { background: var(--green-bright); }
-  .cta-secondary { background: transparent; color: var(--green); border: 1.5px solid var(--green); }
+/* SOCIAL BANNER */
+.social-banner { margin: 8px 20px 16px; background: linear-gradient(135deg, #0a1a00, #0e0e0e); border: 1px solid rgba(61,221,0,0.15); border-radius: 14px; padding: 28px 20px; text-align: left; }
+.banner-eyebrow { font-family: ‘Barlow Condensed’, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px; color: #3ddd00; text-transform: uppercase; margin-bottom: 6px; }
+.banner-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 38px; letter-spacing: 2px; line-height: 1; margin-bottom: 8px; }
+.banner-sub { font-size: 13px; color: #666; margin-bottom: 20px; }
+.banner-btns { display: flex; flex-direction: column; gap: 10px; }
 
-  /* ── WAITLIST BTN ── */
-  .waitlist-btn { width: 100%; padding: 16px; border-radius: 10px; border: 1.5px solid #e63329; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; text-align: center; display: block; cursor: pointer; color: #e63329; background: rgba(220,40,40,0.05); transition: all 0.15s; }
-  .waitlist-btn:active { background: rgba(220,40,40,0.15); }
-
-  .also-section { padding: 0 20px 28px; border-top: 1px solid var(--border); margin-top: 4px; }
-  .also-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--gray); text-transform: uppercase; padding: 16px 0 12px; }
-  .also-scroll { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
-  .also-scroll::-webkit-scrollbar { display: none; }
-  .also-card { flex-shrink: 0; width: 96px; cursor: pointer; }
-  .also-img { width: 96px; height: 96px; border-radius: 8px; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 28px; overflow: hidden; margin-bottom: 6px; transition: border-color 0.2s; }
-  .also-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .also-card:active .also-img { border-color: var(--green); }
-  .also-name { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; color: var(--light); text-align: center; line-height: 1.2; }
-
-  /* ── SOCIAL BANNER ── */
-  .social-banner { margin: 8px 20px 16px; background: linear-gradient(135deg, #0a1a00, var(--dark)); border: 1px solid rgba(61,221,0,0.15); border-radius: 14px; padding: 28px 20px; text-align: left; }
-  .banner-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px; color: var(--green); text-transform: uppercase; margin-bottom: 6px; }
-  .banner-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 2px; line-height: 1; margin-bottom: 8px; }
-  .banner-sub { font-size: 13px; color: var(--gray); margin-bottom: 20px; }
-  .banner-btns { display: flex; flex-direction: column; gap: 10px; }
-
-  /* ── FOOTER ── */
-  footer { border-top: 1px solid var(--border); padding: 24px 20px; text-align: left; }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 4px; margin-bottom: 6px; }
-  .footer-note { font-size: 11px; color: var(--gray); letter-spacing: 1px; }
-  .safe { height: env(safe-area-inset-bottom, 16px); }
-  .loading { text-align: center; padding: 40px 20px; }
-  .loading-text { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 3px; color: var(--gray); text-transform: uppercase; }
+/* FOOTER */
+footer { border-top: 1px solid #1e1e1e; padding: 24px 20px; text-align: left; }
+.footer-logo { font-family: ‘Bebas Neue’, sans-serif; font-size: 20px; letter-spacing: 4px; margin-bottom: 6px; }
+.footer-note { font-size: 11px; color: #666; letter-spacing: 1px; }
+.safe { height: env(safe-area-inset-bottom, 16px); }
+.loading { text-align: center; padding: 40px 20px; }
+.loading-text { font-family: ‘Barlow Condensed’, sans-serif; font-size: 12px; letter-spacing: 3px; color: #666; text-transform: uppercase; }
 </style>
+
 </head>
 <body>
 
-<!-- GATE -->
 <div id="gate">
   <div class="gate-card">
-    <div class="gate-logo"><span style="color:var(--green);">RIPS</span><span style="color:var(--white);"> CLOSET</span></div>
+    <div class="gate-logo"><span style="color:#3ddd00;">RIPS</span><span style="color:#f5f5f0;"> CLOSET</span></div>
     <div class="gate-sub">Private Catalog</div>
     <input id="pwInput" class="gate-input" type="password" placeholder="Enter password"
       onkeydown="if(event.key==='Enter')checkPw()"
@@ -212,48 +150,47 @@
       onblur="this.style.borderColor='#222'"/>
     <div class="gate-error" id="pwError"></div>
     <button class="gate-btn" onclick="checkPw()">Enter Catalog</button>
-    <div class="gate-hint">No password? DM us on Snap 👻</div>
+    <div class="gate-hint">No password? DM us on Snap</div>
   </div>
 </div>
 
-<!-- ANNOUNCEMENT BAR -->
 <div class="announce-bar">
   <div class="announce-track">
-    <span>🌐 WELCOME TO RIPS CLOSET</span>
-    <span>✅ LIMITED STOCK AVAILABLE</span>
-    <span>🔥 GREAT DEALS</span>
-    <span>📍 LOCAL PICKUP ONLY</span>
-    <span>👻 DM ON SNAP TO COP</span>
-    <span>🌐 WELCOME TO RIPS CLOSET</span>
-    <span>✅ LIMITED STOCK AVAILABLE</span>
-    <span>🔥 GREAT DEALS</span>
-    <span>📍 LOCAL PICKUP ONLY</span>
-    <span>👻 DM ON SNAP TO COP</span>
+    <span>WELCOME TO RIPS CLOSET</span>
+    <span>LIMITED STOCK AVAILABLE</span>
+    <span>GREAT DEALS</span>
+    <span>LOCAL PICKUP ONLY</span>
+    <span>DM ON SNAP TO COP</span>
+    <span>WELCOME TO RIPS CLOSET</span>
+    <span>LIMITED STOCK AVAILABLE</span>
+    <span>GREAT DEALS</span>
+    <span>LOCAL PICKUP ONLY</span>
+    <span>DM ON SNAP TO COP</span>
   </div>
 </div>
 
 <div class="top-bar"></div>
 
 <nav>
-  <div class="nav-logo"><span style="color:var(--green);">RIPS</span><span style="color:var(--white);"> CLOSET</span></div>
-  <a href="https://snapchat.com/add/ripscloset" class="nav-snap">DM to Cop 👻</a>
+  <div class="nav-logo"><span style="color:#3ddd00;">RIPS</span><span style="color:#f5f5f0;"> CLOSET</span></div>
+  <a href="https://snapchat.com/add/ripscloset" class="nav-snap">DM to Cop</a>
 </nav>
 
 <section class="hero">
   <div class="hero-eyebrow">The Closet Is Open</div>
   <h1 class="hero-title">
-    <span style="color:var(--green);">RIPS</span><br>
-    <span style="color:var(--white);">CLOSET</span>
+    <span style="color:#3ddd00;">RIPS</span><br>
+    <span style="color:#f5f5f0;">CLOSET</span>
   </h1>
   <p class="hero-sub">
     <strong>Hellstar. Sp5der. More coming.</strong><br>
-    Browse the catalog — DM on Snap to cop.<br>
-    Local pickup only. Small town.
+    Browse the catalog. DM on Snap to cop.<br>
+    Local pickup only.
   </p>
   <div class="hero-stats">
-    <div class="stat"><span class="stat-num" id="statPieces">—</span><span class="stat-label">Pieces</span></div>
-    <div class="stat"><span class="stat-num" id="statBrands">—</span><span class="stat-label">Brands</span></div>
-    <div class="stat"><span class="stat-num">M·L</span><span class="stat-label">Sizes</span></div>
+    <div class="stat"><span class="stat-num" id="statPieces">-</span><span class="stat-label">Pieces</span></div>
+    <div class="stat"><span class="stat-num" id="statBrands">-</span><span class="stat-label">Brands</span></div>
+    <div class="stat"><span class="stat-num">M-L</span><span class="stat-label">Sizes</span></div>
   </div>
 </section>
 
@@ -267,10 +204,10 @@
 <section class="catalog">
   <div class="catalog-header">
     <div class="catalog-title">Current Stock</div>
-    <div class="catalog-count" id="countLabel">— Items</div>
+    <div class="catalog-count" id="countLabel">- Items</div>
   </div>
   <div class="grid" id="grid">
-    <div class="loading" style="grid-column:1/-1"><div class="loading-text">Loading catalog...</div></div>
+    <div class="loading" style="grid-column:1/-1"><div class="loading-text">Loading...</div></div>
   </div>
 </section>
 
@@ -279,22 +216,21 @@
   <div class="banner-title">FOLLOW<br>THE CLOSET</div>
   <p class="banner-sub">New drops on socials first.</p>
   <div class="banner-btns">
-    <a href="https://snapchat.com/add/ripscloset" class="cta-btn cta-primary">Snapchat 👻</a>
+    <a href="https://snapchat.com/add/ripscloset" class="cta-btn cta-primary">Snapchat</a>
     <a href="https://instagram.com/ripscloset" class="cta-btn cta-secondary">Instagram</a>
   </div>
 </div>
 
 <footer>
-  <div class="footer-logo"><span style="color:var(--green);">RIPS</span><span style="color:var(--white);"> CLOSET</span></div>
-  <div class="footer-note">Browse only · DM to purchase · Local pickup · Est. 2025</div>
+  <div class="footer-logo"><span style="color:#3ddd00;">RIPS</span><span style="color:#f5f5f0;"> CLOSET</span></div>
+  <div class="footer-note">Browse only. DM to purchase. Local pickup. Est. 2025</div>
 </footer>
 <div class="safe"></div>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeOutside(event)">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-close-row"><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="modal-close-row"><button class="modal-close" onclick="closeModal()">X</button></div>
     <div class="modal-main-img" id="mImg"></div>
     <div class="modal-thumbs" id="mThumbs"></div>
     <div class="modal-body">
@@ -314,217 +250,226 @@
 </div>
 
 <script>
-// ══════════════════════════════════════
-const PASSWORD    = "RIPSCLOSET";
-const SNAP_URL    = "https://snapchat.com/add/ripscloset";
-const IG_URL      = "https://instagram.com/ripscloset";
-const SNAP_HANDLE = "ripscloset"; // just the username
-// ══════════════════════════════════════
+var PASSWORD = "RIPSCLOSET";
+var SNAP_URL = "https://snapchat.com/add/ripscloset";
+var IG_URL = "https://instagram.com/ripscloset";
 
-// ── REMEMBER PASSWORD ──
-// If they already logged in on this device, skip the gate
 if (localStorage.getItem('rc_auth') === 'yes') {
   document.getElementById('gate').style.display = 'none';
 } else {
   document.body.style.overflow = 'hidden';
-  setTimeout(() => { const i = document.getElementById('pwInput'); if(i) i.focus(); }, 400);
 }
 
 function checkPw() {
-  const val = document.getElementById('pwInput').value;
+  var val = document.getElementById('pwInput').value;
   if (val === PASSWORD) {
     localStorage.setItem('rc_auth', 'yes');
     document.getElementById('gate').style.display = 'none';
     document.body.style.overflow = '';
   } else {
-    const err = document.getElementById('pwError');
-    const inp = document.getElementById('pwInput');
-    err.textContent = 'Wrong password. DM us on Snap 👻';
-    inp.style.borderColor = '#e63329';
-    inp.value = '';
-    setTimeout(() => { inp.style.borderColor = '#222'; err.textContent = ''; }, 2500);
+    document.getElementById('pwError').textContent = 'Wrong password. DM us on Snap.';
+    document.getElementById('pwInput').style.borderColor = '#e63329';
+    document.getElementById('pwInput').value = '';
+    setTimeout(function() {
+      document.getElementById('pwInput').style.borderColor = '#222';
+      document.getElementById('pwError').textContent = '';
+    }, 2500);
   }
 }
 
-// ── PRODUCTS ──
-const products = [
+var products = [
   {
     id: 0, cat: "hellstar",
-    brand: "Hellstar", name: 'Progress Tee "23:43"',
-    emoji: "👕", bg: "#0d0808",
+    brand: "Hellstar", name: "Progress Tee 23:43",
+    emoji: "shirt", bg: "#0d0808",
     photos: ["https://res.cloudinary.com/dzaob7akn/image/upload/f_auto,q_auto/IMG_3490_p75gwb"],
-    desc: "Hellstar \"Has Your Progress Been Saved?\" tee. Washed black. QR Jesus graphic front, bold text back. 100% Cotton, Made in LA. Tags & NFC included.",
+    desc: "Hellstar Has Your Progress Been Saved tee. Washed black. QR Jesus graphic front, bold text back. 100% Cotton, Made in LA. Tags and NFC included.",
     sizes: ["M","L"], available: ["M","L"], badge: "new", sold: false
   },
   {
     id: 1, cat: "hellstar",
     brand: "Hellstar", name: "Werewolf Halloween Tee",
-    emoji: "🐺", bg: "#0d0808",
+    emoji: "wolf", bg: "#0d0808",
     photos: [],
-    desc: "Hellstar Halloween 2024 limited edition. Werewolf graphic front. Washed black. Tags, packaging & NFC all intact.",
+    desc: "Hellstar Halloween 2024 limited edition. Werewolf graphic front. Washed black. Tags, packaging and NFC all intact.",
     sizes: ["M","L"], available: ["M","L"], badge: "hot", sold: true
   },
   {
     id: 2, cat: "hellstar",
     brand: "Hellstar", name: "Hellstar Graphic Tee",
-    emoji: "⭐", bg: "#0d0808",
+    emoji: "star", bg: "#0d0808",
     photos: [],
     desc: "Classic Hellstar graphic tee. Bold front print. Washed black. Tags and packaging included.",
     sizes: ["M","L"], available: ["M"], badge: "limited", sold: false
   },
   {
     id: 3, cat: "hellstar",
-    brand: "Hellstar", name: "Hellstar Graphic Tee Vol.2",
-    emoji: "🔥", bg: "#0d0808",
+    brand: "Hellstar", name: "Hellstar Graphic Tee Vol 2",
+    emoji: "fire", bg: "#0d0808",
     photos: [],
-    desc: "Hellstar graphic tee Vol.2. Tags, NFC chip and packaging included. Ships fast.",
+    desc: "Hellstar graphic tee Vol 2. Tags, NFC chip and packaging included.",
     sizes: ["M","L"], available: ["M","L"], badge: "new", sold: false
   },
   {
     id: 4, cat: "sp5der",
     brand: "Sp5der", name: "Sp5der Hoodie",
-    emoji: "🕷️", bg: "#080d08",
+    emoji: "spider", bg: "#080d08",
     photos: [],
     desc: "Sp5der Web hoodie. Bold spider web graphic. Premium heavyweight cotton. Tags and packaging included.",
     sizes: ["M","L"], available: ["M","L"], badge: "hot", sold: false
   },
   {
     id: 5, cat: "sp5der",
-    brand: "Sp5der", name: "Sp5der Hoodie Vol.2",
-    emoji: "🕸️", bg: "#080d08",
+    brand: "Sp5der", name: "Sp5der Hoodie Vol 2",
+    emoji: "web", bg: "#080d08",
     photos: [],
     desc: "Sp5der hoodie alternate colorway. Premium quality. Tags and packaging included. Limited stock.",
     sizes: ["M","L"], available: ["M","L"], badge: "new", sold: false
-  },
+  }
 ];
 
-const BADGES = {
-  new:     { cls: "badge-new",     label: "New" },
-  hot:     { cls: "badge-hot",     label: "Hot" },
+var BADGES = {
+  new: { cls: "badge-new", label: "New" },
+  hot: { cls: "badge-hot", label: "Hot" },
   limited: { cls: "badge-limited", label: "Limited" },
-  sold:    { cls: "badge-sold",    label: "Sold Out" },
+  sold: { cls: "badge-sold", label: "Sold Out" }
 };
 
-function mainImgHTML(p) {
-  if (p.photos && p.photos.length > 0)
-    return `<img src="${p.photos[0]}" alt="${p.name}" loading="lazy">`;
-  return `<span style="font-size:54px">${p.emoji}</span>`;
+function getImg(p, size) {
+  if (p.photos && p.photos.length > 0) {
+    return '<img src="' + p.photos[0] + '" alt="' + p.name + '" loading="lazy">';
+  }
+  return '<span style="font-size:' + (size || 54) + 'px">&#128248;</span>';
 }
 
-function thumbHTML(p, i) {
-  if (p.photos && p.photos[i])
-    return `<img src="${p.photos[i]}" loading="lazy">`;
-  return p.emoji;
-}
-
-// ── SORT: sold items go to bottom ──
 function sortedList(list) {
-  return [...list].sort((a,b) => (a.sold === b.sold) ? 0 : a.sold ? 1 : -1);
+  return list.slice().sort(function(a,b) {
+    if (a.sold === b.sold) return 0;
+    return a.sold ? 1 : -1;
+  });
 }
 
 function buildGrid(list) {
-  const grid = document.getElementById('grid');
-  const sorted = sortedList(list);
+  var grid = document.getElementById('grid');
+  var sorted = sortedList(list);
   if (!sorted.length) {
-    grid.innerHTML = `<div class="loading" style="grid-column:1/-1"><div class="loading-text">No items found</div></div>`;
+    grid.innerHTML = '<div class="loading" style="grid-column:1/-1"><div class="loading-text">No items found</div></div>';
     document.getElementById('countLabel').textContent = '0 Items';
     return;
   }
-  grid.innerHTML = sorted.map(p => {
-    const b = p.sold ? BADGES.sold : (BADGES[p.badge] || BADGES.new);
-    return `
-    <div class="card" onclick="openModal(${p.id})">
-      <div class="card-img" style="background:${p.bg}">
-        ${mainImgHTML(p)}
-        <div class="card-badge ${b.cls}">${b.label}</div>
-        ${p.sold ? `<div class="sold-overlay"><div class="sold-text">SOLD</div></div>` : ''}
-      </div>
-      <div class="card-body">
-        <div class="card-brand">${p.brand}</div>
-        <div class="card-name">${p.name}</div>
-        <div class="card-sizes">
-          ${p.sizes.map(s=>`<span class="size-tag ${p.available.includes(s)?'':'out'}">${s}</span>`).join('')}
-        </div>
-      </div>
-    </div>`;
-  }).join('');
+  var html = '';
+  for (var i = 0; i < sorted.length; i++) {
+    var p = sorted[i];
+    var b = p.sold ? BADGES.sold : (BADGES[p.badge] || BADGES.new);
+    var sizes = '';
+    for (var s = 0; s < p.sizes.length; s++) {
+      var available = p.available.indexOf(p.sizes[s]) >= 0;
+      sizes += '<span class="size-tag ' + (available ? '' : 'out') + '">' + p.sizes[s] + '</span>';
+    }
+    html += '<div class="card" onclick="openModal(' + p.id + ')">';
+    html += '<div class="card-img" style="background:' + p.bg + '">';
+    html += getImg(p, 48);
+    html += '<div class="card-badge ' + b.cls + '">' + b.label + '</div>';
+    if (p.sold) html += '<div class="sold-overlay"><div class="sold-text">SOLD</div></div>';
+    html += '</div>';
+    html += '<div class="card-body">';
+    html += '<div class="card-brand">' + p.brand + '</div>';
+    html += '<div class="card-name">' + p.name + '</div>';
+    html += '<div class="card-sizes">' + sizes + '</div>';
+    html += '</div></div>';
+  }
+  grid.innerHTML = html;
   document.getElementById('countLabel').textContent = sorted.length + ' Items';
 }
 
 function updateStats() {
-  document.getElementById('statPieces').textContent = products.filter(p=>!p.sold).length;
-  const brands = [...new Set(products.map(p=>p.cat))].length;
-  document.getElementById('statBrands').textContent = brands;
+  var available = 0;
+  var cats = {};
+  for (var i = 0; i < products.length; i++) {
+    if (!products[i].sold) available++;
+    cats[products[i].cat] = true;
+  }
+  document.getElementById('statPieces').textContent = available;
+  document.getElementById('statBrands').textContent = Object.keys(cats).length;
 }
 
 updateStats();
 buildGrid(products);
 
 function filter(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  var btns = document.querySelectorAll('.filter-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
   btn.classList.add('active');
-  const list = cat === 'all'       ? products
-             : cat === 'available' ? products.filter(p => !p.sold)
-             : products.filter(p => p.cat === cat);
+  var list = products;
+  if (cat === 'available') list = products.filter(function(p) { return !p.sold; });
+  else if (cat !== 'all') list = products.filter(function(p) { return p.cat === cat; });
   buildGrid(list);
 }
 
-// ── MODAL ──
 function openModal(id) {
-  const p = products.find(x => x.id === id);
+  var p = null;
+  for (var i = 0; i < products.length; i++) {
+    if (products[i].id === id) { p = products[i]; break; }
+  }
+  if (!p) return;
 
-  const mImg = document.getElementById('mImg');
+  var mImg = document.getElementById('mImg');
   mImg.style.background = p.bg;
-  mImg.innerHTML = mainImgHTML(p);
+  mImg.innerHTML = getImg(p, 80);
 
-  const count = p.photos && p.photos.length > 0 ? p.photos.length : 1;
-  document.getElementById('mThumbs').innerHTML = Array.from({length: count}, (_,i) => `
-    <div class="thumb ${i===0?'active':''}" onclick="switchThumb(${id},${i},this)">
-      ${thumbHTML(p,i)}
-    </div>`).join('');
+  var thumbCount = p.photos && p.photos.length > 0 ? p.photos.length : 1;
+  var thumbHtml = '';
+  for (var t = 0; t < thumbCount; t++) {
+    var active = t === 0 ? 'active' : '';
+    var thumbContent = p.photos && p.photos[t] ? '<img src="' + p.photos[t] + '" loading="lazy">' : '&#128248;';
+    thumbHtml += '<div class="thumb ' + active + '" onclick="switchThumb(' + id + ',' + t + ',this)">' + thumbContent + '</div>';
+  }
+  document.getElementById('mThumbs').innerHTML = thumbHtml;
 
   document.getElementById('mBrand').textContent = p.brand;
   document.getElementById('mTitle').textContent = p.name;
-  document.getElementById('mDesc').textContent  = p.desc;
+  document.getElementById('mDesc').textContent = p.desc;
 
-  document.getElementById('mSizes').innerHTML = p.sizes.map(s =>
-    `<div class="modal-size ${p.available.includes(s)?'':'out'}">${s}</div>`
-  ).join('');
+  var sizesHtml = '';
+  for (var s = 0; s < p.sizes.length; s++) {
+    var avail = p.available.indexOf(p.sizes[s]) >= 0;
+    sizesHtml += '<div class="modal-size ' + (avail ? '' : 'out') + '">' + p.sizes[s] + '</div>';
+  }
+  document.getElementById('mSizes').innerHTML = sizesHtml;
 
-  // CTA buttons — waitlist if sold
-  const cta = document.getElementById('mCta');
+  var cta = document.getElementById('mCta');
   if (p.sold) {
-    cta.innerHTML = `
-      <a href="https://snapchat.com/add/${SNAP_HANDLE}" class="waitlist-btn">🔔 Join Waitlist on Snap</a>
-      <a href="${IG_URL}" class="cta-btn cta-secondary">DM on Instagram</a>`;
+    cta.innerHTML = '<a href="' + SNAP_URL + '" class="waitlist-btn">Join Waitlist on Snap</a><a href="' + IG_URL + '" class="cta-btn cta-secondary">DM on Instagram</a>';
   } else {
-    cta.innerHTML = `
-      <a href="${SNAP_URL}" class="cta-btn cta-primary">DM on Snapchat to Cop 👻</a>
-      <a href="${IG_URL}" class="cta-btn cta-secondary">DM on Instagram</a>`;
+    cta.innerHTML = '<a href="' + SNAP_URL + '" class="cta-btn cta-primary">DM on Snapchat to Cop</a><a href="' + IG_URL + '" class="cta-btn cta-secondary">DM on Instagram</a>';
   }
 
-  document.getElementById('alsoScroll').innerHTML = sortedList(products)
-    .filter(x => x.id !== id).slice(0,6)
-    .map(x => `
-    <div class="also-card" onclick="closeModal();setTimeout(()=>openModal(${x.id}),250)">
-      <div class="also-img" style="background:${x.bg}">${mainImgHTML(x)}</div>
-      <div class="also-name">${x.name}</div>
-    </div>`).join('');
+  var also = sortedList(products).filter(function(x) { return x.id !== id; }).slice(0, 6);
+  var alsoHtml = '';
+  for (var a = 0; a < also.length; a++) {
+    var x = also[a];
+    alsoHtml += '<div class="also-card" onclick="closeModal();setTimeout(function(){openModal(' + x.id + ')},250)">';
+    alsoHtml += '<div class="also-img" style="background:' + x.bg + '">' + getImg(x, 28) + '</div>';
+    alsoHtml += '<div class="also-name">' + x.name + '</div></div>';
+  }
+  document.getElementById('alsoScroll').innerHTML = alsoHtml;
 
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function switchThumb(pid, idx, el) {
-  const p = products.find(x=>x.id===pid);
-  document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
+  var p = null;
+  for (var i = 0; i < products.length; i++) {
+    if (products[i].id === pid) { p = products[i]; break; }
+  }
+  var thumbs = document.querySelectorAll('.thumb');
+  for (var t = 0; t < thumbs.length; t++) thumbs[t].classList.remove('active');
   el.classList.add('active');
-  const mImg = document.getElementById('mImg');
+  var mImg = document.getElementById('mImg');
   mImg.style.background = p.bg;
   if (p.photos && p.photos[idx]) {
-    mImg.innerHTML = `<img src="${p.photos[idx]}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block;">`;
-  } else {
-    mImg.innerHTML = `<span style="font-size:80px">${p.emoji}</span>`;
+    mImg.innerHTML = '<img src="' + p.photos[idx] + '" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block;">';
   }
 }
 
@@ -537,7 +482,8 @@ function closeOutside(e) {
   if (e.target === document.getElementById('modalOverlay')) closeModal();
 }
 
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 </script>
+
 </body>
 </html>
