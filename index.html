@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:;">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html { width: 100%; overflow-x: hidden; }
@@ -122,15 +123,11 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(6,6,6,0.97); back
 .also-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .also-card:active .also-img { border-color: #3ddd00; }
 .also-name { font-family: ‘Barlow Condensed’, sans-serif; font-size: 10px; font-weight: 600; color: #999; text-align: center; line-height: 1.2; }
-
-/* SOCIAL BANNER */
 .social-banner { margin: 8px 20px 16px; background: linear-gradient(135deg, #0a1a00, #0e0e0e); border: 1px solid rgba(61,221,0,0.15); border-radius: 14px; padding: 28px 20px; text-align: left; }
 .banner-eyebrow { font-family: ‘Barlow Condensed’, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px; color: #3ddd00; text-transform: uppercase; margin-bottom: 6px; }
 .banner-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 38px; letter-spacing: 2px; line-height: 1; margin-bottom: 8px; }
 .banner-sub { font-size: 13px; color: #666; margin-bottom: 20px; }
 .banner-btns { display: flex; flex-direction: column; gap: 10px; }
-
-/* FOOTER */
 footer { border-top: 1px solid #1e1e1e; padding: 24px 20px; text-align: left; }
 .footer-logo { font-family: ‘Bebas Neue’, sans-serif; font-size: 20px; letter-spacing: 4px; margin-bottom: 6px; }
 .footer-note { font-size: 11px; color: #666; letter-spacing: 1px; }
@@ -152,22 +149,22 @@ footer { border-top: 1px solid #1e1e1e; padding: 24px 20px; text-align: left; }
       onblur="this.style.borderColor='#222'"/>
     <div class="gate-error" id="pwError"></div>
     <button class="gate-btn" onclick="checkPw()">Enter Catalog</button>
-    <div class="gate-hint">No password? DM us on Snap</div>
+    <div class="gate-hint">No password? DM us on Snap 👻</div>
   </div>
 </div>
 
 <div class="announce-bar">
   <div class="announce-track">
-    <span>WELCOME TO RIPS CLOSET</span>
-    <span>LIMITED STOCK AVAILABLE</span>
-    <span>GREAT DEALS</span>
-    <span>LOCAL PICKUP ONLY</span>
-    <span>DM ON SNAP TO COP</span>
-    <span>WELCOME TO RIPS CLOSET</span>
-    <span>LIMITED STOCK AVAILABLE</span>
-    <span>GREAT DEALS</span>
-    <span>LOCAL PICKUP ONLY</span>
-    <span>DM ON SNAP TO COP</span>
+    <span>🌐 WELCOME TO RIPS CLOSET</span>
+    <span>✅ LIMITED STOCK AVAILABLE</span>
+    <span>🔥 GREAT DEALS</span>
+    <span>📍 LOCAL PICKUP ONLY</span>
+    <span>👻 DM ON SNAP TO COP</span>
+    <span>🌐 WELCOME TO RIPS CLOSET</span>
+    <span>✅ LIMITED STOCK AVAILABLE</span>
+    <span>🔥 GREAT DEALS</span>
+    <span>📍 LOCAL PICKUP ONLY</span>
+    <span>👻 DM ON SNAP TO COP</span>
   </div>
 </div>
 
@@ -175,7 +172,7 @@ footer { border-top: 1px solid #1e1e1e; padding: 24px 20px; text-align: left; }
 
 <nav>
   <div class="nav-logo"><span style="color:#3ddd00;">RIPS</span><span style="color:#f5f5f0;"> CLOSET</span></div>
-  <a href="https://snapchat.com/add/ripscloset" class="nav-snap">DM to Cop</a>
+  <a href="https://snapchat.com/add/ripscloset" class="nav-snap">DM to Cop 👻</a>
 </nav>
 
 <section class="hero">
@@ -218,7 +215,7 @@ footer { border-top: 1px solid #1e1e1e; padding: 24px 20px; text-align: left; }
   <div class="banner-title">FOLLOW<br>THE CLOSET</div>
   <p class="banner-sub">New drops on socials first.</p>
   <div class="banner-btns">
-    <a href="https://snapchat.com/add/ripscloset" class="cta-btn cta-primary">Snapchat</a>
+    <a href="https://snapchat.com/add/ripscloset" class="cta-btn cta-primary">Snapchat 👻</a>
     <a href="https://instagram.com/ripscloset" class="cta-btn cta-secondary">Instagram</a>
   </div>
 </div>
@@ -232,7 +229,7 @@ footer { border-top: 1px solid #1e1e1e; padding: 24px 20px; text-align: left; }
 <div class="modal-overlay" id="modalOverlay" onclick="closeOutside(event)">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-close-row"><button class="modal-close" onclick="closeModal()">X</button></div>
+    <div class="modal-close-row"><button class="modal-close" onclick="closeModal()">✕</button></div>
     <div class="modal-main-img" id="mImg"></div>
     <div class="modal-thumbs" id="mThumbs"></div>
     <div class="modal-body">
@@ -283,7 +280,7 @@ var products = [
   {
     id: 0, cat: "hellstar",
     brand: "Hellstar", name: "Progress Tee 23:43",
-    emoji: "shirt", bg: "#0d0808",
+    emoji: "👕", bg: "#0d0808",
     photos: ["https://res.cloudinary.com/dzaob7akn/image/upload/f_auto,q_auto/IMG_3490_p75gwb"],
     desc: "Hellstar Has Your Progress Been Saved tee. Washed black. QR Jesus graphic front, bold text back. 100% Cotton, Made in LA. Tags and NFC included.",
     sizes: ["M","L"], available: ["M","L"], badge: "new", sold: false
@@ -291,7 +288,7 @@ var products = [
   {
     id: 1, cat: "hellstar",
     brand: "Hellstar", name: "Werewolf Halloween Tee",
-    emoji: "wolf", bg: "#0d0808",
+    emoji: "🐺", bg: "#0d0808",
     photos: [],
     desc: "Hellstar Halloween 2024 limited edition. Werewolf graphic front. Washed black. Tags, packaging and NFC all intact.",
     sizes: ["M","L"], available: ["M","L"], badge: "hot", sold: true
@@ -299,7 +296,7 @@ var products = [
   {
     id: 2, cat: "hellstar",
     brand: "Hellstar", name: "Hellstar Graphic Tee",
-    emoji: "star", bg: "#0d0808",
+    emoji: "⭐", bg: "#0d0808",
     photos: [],
     desc: "Classic Hellstar graphic tee. Bold front print. Washed black. Tags and packaging included.",
     sizes: ["M","L"], available: ["M"], badge: "limited", sold: false
@@ -307,7 +304,7 @@ var products = [
   {
     id: 3, cat: "hellstar",
     brand: "Hellstar", name: "Hellstar Graphic Tee Vol 2",
-    emoji: "fire", bg: "#0d0808",
+    emoji: "🔥", bg: "#0d0808",
     photos: [],
     desc: "Hellstar graphic tee Vol 2. Tags, NFC chip and packaging included.",
     sizes: ["M","L"], available: ["M","L"], badge: "new", sold: false
@@ -315,7 +312,7 @@ var products = [
   {
     id: 4, cat: "sp5der",
     brand: "Sp5der", name: "Sp5der Hoodie",
-    emoji: "spider", bg: "#080d08",
+    emoji: "🕷️", bg: "#080d08",
     photos: [],
     desc: "Sp5der Web hoodie. Bold spider web graphic. Premium heavyweight cotton. Tags and packaging included.",
     sizes: ["M","L"], available: ["M","L"], badge: "hot", sold: false
@@ -323,7 +320,7 @@ var products = [
   {
     id: 5, cat: "sp5der",
     brand: "Sp5der", name: "Sp5der Hoodie Vol 2",
-    emoji: "web", bg: "#080d08",
+    emoji: "🕸️", bg: "#080d08",
     photos: [],
     desc: "Sp5der hoodie alternate colorway. Premium quality. Tags and packaging included. Limited stock.",
     sizes: ["M","L"], available: ["M","L"], badge: "new", sold: false
@@ -341,7 +338,7 @@ function getImg(p, size) {
   if (p.photos && p.photos.length > 0) {
     return '<img src="' + p.photos[0] + '" alt="' + p.name + '" loading="lazy">';
   }
-  return '<span style="font-size:' + (size || 54) + 'px">&#128248;</span>';
+  return '<span style="font-size:' + (size || 54) + 'px">' + (p.emoji || '') + '</span>';
 }
 
 function sortedList(list) {
@@ -423,7 +420,7 @@ function openModal(id) {
   var thumbHtml = '';
   for (var t = 0; t < thumbCount; t++) {
     var active = t === 0 ? 'active' : '';
-    var thumbContent = p.photos && p.photos[t] ? '<img src="' + p.photos[t] + '" loading="lazy">' : '&#128248;';
+    var thumbContent = p.photos && p.photos[t] ? '<img src="' + p.photos[t] + '" loading="lazy">' : (p.emoji || '');
     thumbHtml += '<div class="thumb ' + active + '" onclick="switchThumb(' + id + ',' + t + ',this)">' + thumbContent + '</div>';
   }
   document.getElementById('mThumbs').innerHTML = thumbHtml;
@@ -441,9 +438,9 @@ function openModal(id) {
 
   var cta = document.getElementById('mCta');
   if (p.sold) {
-    cta.innerHTML = '<a href="' + SNAP_URL + '" class="waitlist-btn">Join Waitlist on Snap</a><a href="' + IG_URL + '" class="cta-btn cta-secondary">DM on Instagram</a>';
+    cta.innerHTML = '<a href="' + SNAP_URL + '" class="waitlist-btn">🔔 Join Waitlist on Snap</a><a href="' + IG_URL + '" class="cta-btn cta-secondary">DM on Instagram</a>';
   } else {
-    cta.innerHTML = '<a href="' + SNAP_URL + '" class="cta-btn cta-primary">DM on Snapchat to Cop</a><a href="' + IG_URL + '" class="cta-btn cta-secondary">DM on Instagram</a>';
+    cta.innerHTML = '<a href="' + SNAP_URL + '" class="cta-btn cta-primary">DM on Snapchat to Cop 👻</a><a href="' + IG_URL + '" class="cta-btn cta-secondary">DM on Instagram</a>';
   }
 
   var also = sortedList(products).filter(function(x) { return x.id !== id; }).slice(0, 6);
